@@ -89,8 +89,8 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-deploy:
-  default:
-    kind: rsync
-    dst:  maertens@maertens.io:/srv/http/maertens.io/rien
-    options: [ '-glpPrtvz', '-e', 'ssh -p 9450', '--delete']
+# deploy:
+#   default:
+#     kind: rsync
+#     dst:  maertens@maertens.io:/srv/http/maertens.io/rien
+#     options: [ '-glpPrtvz', '-e', 'ssh -p 9450', '--delete']
