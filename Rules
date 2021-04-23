@@ -38,6 +38,7 @@ compile '/cv.slim', rep: :pdf do
           page_size: 'A4',
           margin_left: '0.6in',
           margin_right: '0.6in',
+          enable_local_file_access: true,
           style_items: item[:pdf_stylesheets]
   write ext: 'pdf'
 end

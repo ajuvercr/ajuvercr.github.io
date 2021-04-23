@@ -2,8 +2,6 @@
 title: Curriculum Vitae — Arthur Vercruysse
 og:
   type: website
-  url: https://rien.maertens.io/cv/
-  image: https://rien.maertens.io/img/rienmaertens.png
   'image:alt': Arthur Vercruysse
   description: Curriculum Vitae of Arthur Vercruysse, a computer scientist.
 
@@ -12,69 +10,126 @@ pdf_stylesheets:
   - /assets/css/pdf.scss
   - /assets/css/fira-mono.css.erb
 ---
+section.big
+  h1 Arthur Vercruysse
+  p
+    strong Computer scientist&nbsp;
+    ' Embracing challenging problems with no apparent simple solution. Contributing to the FOSS (Free and Open-Source Software) community.
+
+
+section.contact
+  h2 Contact
+  ul
+    li
+      a(href="mailto:arthur.vercruysse@outlook.com")arthur.vercruysse@outlook.com
+    li
+      a(href="tel:04-87197648")04/87 19 76 48
+    li
+      a(href="https://github.com/ajuvercr")github.com/ajuvercr
+    li
+      a(href="https://www.openstreetmap.org/relation/897671")Ghent, Belgium
+
+
+section.big
+  h2 Experience
+  ul
+    li.experience
+      h3 Sigasi nv
+      p.title Ghent - Internship
+      p.date July 2020 - September 2020
+      p.desc Assisting R&D with the development of Sigasi studio (eclipse based editor for VHDL and Verilog).
+
+    li.experience
+      h3 Zeus WPI
+      p.title Ghent University - Vice President
+      p.date July 2019 - June 2020
+      p.desc
+        ' Co-organizing events and leading student hacker space
+        a (href="https://zeus.gent")Zeus WPI
+        ' .
+
+    li.experience
+      h3 High Performance Computing
+      p.title Ghent University - Student job
+      p.date July 2019 - December 2019
+      p.desc Assisting R&D and backend development on hpc cluster overview.
+
+
 section
-  markdown:
-    # Arthur Vercruysse
+  h2 Technologies
+  ul
+    li
+      strong Programming:
+      p Rust, Java, Python, C, C++, Javascript, Common Lisp, GLSL, Julia, Haskell
+    li
+      strong Frameworks:
+      p Rocket, Tokio, Spring, Android, React, VueJs, CUDA.jl, nanoc
+    li
+      strong Software:
+      p Unix, Git, PostgreSQL, LaTeX, MS Office
 
-    **Computer scientist**
-    Embracing challenging problems with no apparent simple solution.
-    Contributing to the FOSS (Free and Open-Source Software) community.
+  h2 Extra
+  ul
+    li
+      p
+        strong Active board member
+        =< 'of the student hacker space '
+        a (href="https://zeus.gent")Zeus WPI
+        | , with a passion for open source software.
+      p.date September 2017 - Present
 
-section
-  markdown:
-    ## Contact
-      - [Eeklostraat 210, Ghent, Belgium](https://www.openstreetmap.org/relation/897671)
-      - [04/87 19 76 48](tel:04-87197648)
-      - [github.com/ajuvercr](https://github.com/ajuvercr)
-      - [arthur.vercruysse@outlook.com](mailto:arthur.vercruysse@outlook.com)
+    li
+      p
+        strong Java finalist
+        =< 'in '
+        a (href="https://editx.eu/it-challenge/java-challenge-belgium-2018-fps-finance")Java Challenge Belgium
+        =< 'by FPS finance'
+      p.date March 2018
 
-section
-  markdown:
-    ## Experience
-    - **Developer** at UGent (super computer division) as a student job (3 months).
 
-    - **Finalist** in 2018 [Java Challenge Belgium](https://editx.eu/it-challenge/java-challenge-belgium-2018-fps-finance).
+section.big
+  h2 Education
+  ul
+    li.experience
+      h3 Ghent Univeristy
+      ul
+        li
+          p.desc
+            ' Master of Science in
+            strong Computer Science
+          p.date September 2019 - June 2021
+        li
+          p.desc
+            ' Bachelor of Science in
+            strong Computer Science
+          p.date September 2016 - June 2019
+      / p.desc with a focus on mathematical courses
+  h2 Languages
+  ul.contact
+    li
+      strong Dutch
+      =< 'native tongue'
+    li
+      strong English
+      =< 'fluent'
+    li
+      strong French
+      =< 'sufficient'
 
-    - **Developer** for [Nutritop](https://nutritop.be) as a student job.
 
-    - **Active board member** of the student hacker space
-      [Zeus WPI](https://zeus.gent), with a passion for open source software.
-
-    - **Deliveroo courier** since March 2017.
-    
-    - **Gamma** assistant as a student job in 2016.
-
-    - **Participant** in the [Mini Maker Faire](https://www.makerfairegent.be/) 2019 Robotcompetition.
-
-section
-  markdown:
-    ## Technologies
-
-    **Programming:**<br>Rust, Java, Python, C, C++, Javascript, Common Lisp, GLSL
-
-    **Frameworks:**<br>Rocket, Tokio, Spring, Android, React, VueJs
-
-    **Software:**<br>Unix, Git, PostgreSQL, LaTeX
-
-section
-  markdown:
-    ## Education
-
-    - **Computer Science** at Ghent University
-      - **Bachelor of Science.** 2016 - 2019
-
-      - **Master of Science.** 2019 - current (with a focus on mathematical courses)
-        
-section
-  markdown:
-    ## Hobbies
-      - **Climbing** to the top with recreational bouldering.
-      - **Discovering** and learning technologies.
-      - **Engineering** robot hard- and software.
-      - **Creating** seemingly useless applications.
-      - **Tinkering** with Unix systems: servers, laptops …
+section.hobbies
+  h2 Hobbies
+  ul
+    li
+      strong Climbing
+      =< 'to the top with recreational bouldering.'
+    li
+      strong Creating
+      =< 'seemingly useless applications.'
+    li
+      strong Tinkering
+      =< 'with Unix systems like servers, raspberry pi, ...'
 
 
 section.center.hidden-print
   a href='/cv.pdf' Download as PDF
-

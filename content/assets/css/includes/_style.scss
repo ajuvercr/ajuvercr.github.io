@@ -48,6 +48,7 @@ p, ul, h1, h2, h3 {
       margin: 1em 1em;
     }
   }
+
 }
 
 .cv {
@@ -55,16 +56,24 @@ p, ul, h1, h2, h3 {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    margin: $baseline auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 48*$baseline;
+  }
+
+  .small {
+    color: black;
   }
 
   section {
     box-sizing: border-box;
-    flex-grow: 1;
+    // flex-grow: 1;
     flex-basis: 16*$baseline;
     max-width: 100%;
     margin: 0 $baseline;
+  }
+
+  section.big {
+    flex-grow: 3;
   }
 
   ul {
@@ -74,6 +83,52 @@ p, ul, h1, h2, h3 {
 
   li > ul {
     padding-left: $baseline;
+  }
+
+  h2 {
+    color: #ff7f00;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: larger;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  .date {
+    // color: #ff7f00;
+    color: #444;
+  }
+  .desc {
+    color: #222;
+  }
+
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  h3 {
+    margin-top: -6px;
+  }
+  li + li {
+    margin-top: 30px;
+  }
+
+  .hobbies {
+    li + li {
+      margin-top: 15px;
+    }
+  }
+
+  .contact {
+    li + li {
+      margin-top: 5px;
+    }
+    ul {
+      margin-bottom: 5px;
+    }
   }
 }
 
