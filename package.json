@@ -1,0 +1,22 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsx build.ts",
+    "watch": "tsx build.ts watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "pug": "^3.0.3",
+    "puppeteer": "^24.31.0",
+    "sass": "^1.94.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6"
+  }
+}
