@@ -1,5 +1,7 @@
 import chokidar from "chokidar";
 import fs from "node:fs/promises";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 import pug from "pug";
 import sass from "sass";
 import puppeteer from "puppeteer";
@@ -35,13 +37,15 @@ async function main() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  // Load the HTML string directly
-  await page.setContent(html, { waitUntil: "networkidle0" });
+  // Navigate to the written file (not page.setContent) so relative
+  // asset URLs (style.css, fonts) resolve correctly.
+  const fileUrl = pathToFileURL(path.resolve("output/index.html")).href;
+  await page.goto(fileUrl, { waitUntil: "networkidle0" });
 
   await page.pdf({
     path: "output/index.pdf",
-    format: "A4",
     printBackground: true,
+    preferCSSPageSize: true,
   });
 
   await browser.close();

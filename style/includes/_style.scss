@@ -1,3 +1,8 @@
+@page {
+  size: A4;
+  margin: 16mm;
+}
+
 body {
   font-family: 'Fira Mono', monospace;
   font-size: $baseline * 2 / 3; // ~16px
@@ -28,27 +33,29 @@ ul {
    ===================== */
 main {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0 $baseline * 1.5;
   max-width: 48 * $baseline; // ~1152px
   margin: 0 auto;
+  padding: $baseline * 1.5 $baseline;
   box-sizing: border-box;
 }
 
 .left {
-  display: inline-block;
-  width: 68%;
+  flex: 68 1 0;
 }
 
 .right {
-  display: inline-block;
-  width: 30%;
+  flex: 30 1 0;
 }
 
 section {
-  margin: 0 $baseline / 2;
   box-sizing: border-box;
+}
 
+section+section {
+  margin-top: $baseline;
 }
 
 ul {
@@ -63,26 +70,48 @@ li>ul {
 h2 {
   color: #ff7f00;
   font-size: 1.1em;
-  margin-bottom: $baseline / 2;
+  margin-top: 1.1em;
+  margin-bottom: 0.3em;
 }
 
 .title {
   font-weight: 700;
+  margin-top: 0.45em;
 }
 
 .sub {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
+  gap: 0 $baseline / 2;
+}
+
+.sub h3 {
+  margin: 0;
+}
+
+.sub .title {
+  margin-top: 0;
 }
 
 .date {
   color: #444;
+  font-style: italic;
+}
+
+.pub .date {
+  margin-top: 0.3em;
+}
+
+.pub-title {
+  text-indent: -1em;
+  padding-left: 1em;
 }
 
 .desc {
   color: #222;
-  margin-top: 0.4em;
+  margin-top: 0.5em;
 }
 
 h3 {
@@ -90,16 +119,15 @@ h3 {
   margin-bottom: 0.1em;
 }
 
-h2 {
-  margin-top: 0.8em;
-  margin-bottom: 0.2em;
-}
-
 li+li {
-  margin-top: $baseline;
+  margin-top: $baseline * 1.2;
 }
 
 .hobbies li+li {
+  margin-top: $baseline / 2;
+}
+
+.tech li+li {
   margin-top: $baseline / 2;
 }
 
@@ -110,26 +138,58 @@ li+li {
 @media print {
   body {
     font-size: $baseline * 0.5; // ~16px
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
     max-width: 100% !important;
   }
 
+  main {
+    gap: 0 $baseline;
+    max-width: 100%;
+    padding: 0;
+  }
+
   .left {
-    width: 60%;
+    flex: 63 1 0;
   }
 
   .right {
-    width: 40%;
+    flex: 37 1 0;
+  }
+
+  section+section {
+    margin-top: $baseline * 0.6;
+  }
+
+  li+li {
+    margin-top: $baseline * 0.8;
+  }
+
+  .title {
+    margin-top: 0.4em;
   }
 
   h1,
   h2,
   h3 {
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
+  }
+
+  h2 {
+    margin-top: 0.8em;
   }
 
   h3 {
-    margin-top: 0.4em;
+    margin-top: 0.5em;
+  }
+
+  .desc {
+    margin-top: 0.3em;
+  }
+
+  li.experience,
+  .contact li {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .hidden-print {
