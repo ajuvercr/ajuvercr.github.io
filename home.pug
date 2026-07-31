@@ -43,31 +43,6 @@ html(lang="en")
           | Developer for semantic Web developers.
           span.cursor(aria-hidden="true")
 
-      div.benchmark
-        p.benchmark__title $ arthur --benchmark --trust-me-bro --vs=some-random-dev
-        p.benchmark__legend
-          span.benchmark__legend-swatch.benchmark__legend-swatch--me
-          |  me
-          span.benchmark__legend-swatch.benchmark__legend-swatch--bad
-          |  some-random-dev
-        ul.benchmark__list
-          +bench-row('Semantic Web wizardry', '100%', '100%', '4%', '4%')
-          +bench-row('RDF triples per cup of coffee', '100%', '9000+', '2%', '0')
-          +bench-row('Bugs fixed via "turn it off and on again"', '12%', '12%', '97%', '97%')
-          +bench-row('Trust me bro accuracy', '100%', '100%', '5%', 'N/A')
-        p.benchmark__footnote // independently verified by nobody, n=1 (some-random-dev may or may not exist)
-
-      div.marquee(role="region" aria-label="Featured projects")
-        div.marquee__track
-          div.marquee__group
-            +project-cards()
-          div.marquee__group.marquee__group--dup(aria-hidden="true")
-            +project-cards(true)
-          div.marquee__group.marquee__group--dup(aria-hidden="true")
-            +project-cards(true)
-          div.marquee__group.marquee__group--dup(aria-hidden="true")
-            +project-cards(true)
-
     main
       section#about.reveal(aria-labelledby="about-heading").container
         h2#about-heading.section-heading ABOUT&nbsp;{
@@ -85,6 +60,31 @@ html(lang="en")
             Outside of work, I'm usually bouldering, chipping away at renovating my house,
             or building small tools I didn't strictly need — see Projects below.
         span.brace-close }
+
+      div.marquee(role="region" aria-label="Featured projects")
+        div.marquee__track
+          div.marquee__group
+            +project-cards()
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+
+      div.benchmark
+        p.benchmark__title $ arthur --benchmark --trust-me-bro --vs=some-random-dev
+        p.benchmark__legend
+          span.benchmark__legend-swatch.benchmark__legend-swatch--me
+          |  me
+          span.benchmark__legend-swatch.benchmark__legend-swatch--bad
+          |  some-random-dev
+        ul.benchmark__list
+          +bench-row('Semantic Web wizardry', '100%', '100%', '4%', '4%')
+          +bench-row('RDF triples per cup of coffee', '100%', '9000+', '2%', '0')
+          +bench-row('Bugs fixed via "turn it off and on again"', '12%', '12%', '97%', '97%')
+          +bench-row('Trust me bro accuracy', '100%', '100%', '5%', 'N/A')
+        p.benchmark__footnote // independently verified by nobody, n=1 (some-random-dev may or may not exist)
 
       section#experience.reveal(aria-labelledby="experience-heading").container
         h2#experience-heading.section-heading EXPERIENCE&nbsp;{

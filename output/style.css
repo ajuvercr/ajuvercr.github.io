@@ -327,9 +327,10 @@ code {
    "Trust me bro" benchmark
    ===================== */
 .benchmark {
-  max-width: 816px;
+  max-width: 1152px;
   width: 100%;
-  margin: 48px auto 0 auto;
+  margin: 0 auto;
+  padding: 0 24px;
   text-align: left;
 }
 
@@ -444,6 +445,7 @@ code {
 .marquee {
   width: 100%;
   overflow: hidden;
+  margin: 72px;
   background: var(--bg-elevated);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -528,7 +530,7 @@ main {
   padding: 48px 0;
 }
 
-section + section {
+main > * + * {
   margin-top: 72px;
 }
 
@@ -747,8 +749,11 @@ section + section {
   }
 }
 @media (min-width: 960px) {
-  section + section {
+  main > * + * {
     margin-top: 96px;
+  }
+  .marquee {
+    margin-top: 168px;
   }
   .marquee__card {
     max-width: 380px;
