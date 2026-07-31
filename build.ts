@@ -63,7 +63,9 @@ async function main() {
   console.log("✓ Pug → output/cv/index.html");
 
   // 4. Generate PDF using Puppeteer (CV only)
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
 
   // Navigate to the written file (not page.setContent) so relative
