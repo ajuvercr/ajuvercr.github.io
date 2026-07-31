@@ -1,0 +1,206 @@
+doctype html
+include includes/head.pug
+
+mixin project-card(name, href, label, logo, desc, decorative)
+  a.marquee__card(href=href target="_blank" rel="noopener" aria-label=label tabindex=decorative ? "-1" : undefined)
+    span.marquee__logo
+      img(src=logo alt="" width="28" height="28" loading="lazy")
+    span.marquee__card-text
+      span.marquee__card-title= name
+      span.marquee__card-desc= desc
+
+mixin bench-row(label, myWidth, myValue, badWidth, badValue)
+  li.benchmark__row
+    span.benchmark__label= label
+    div.benchmark__bar-line
+      span.benchmark__bar
+        span.benchmark__fill(style=`width: ${myWidth}`)
+      span.benchmark__value= myValue
+    div.benchmark__bar-line.benchmark__bar-line--bad
+      span.benchmark__bar
+        span.benchmark__fill.benchmark__fill--bad(style=`width: ${badWidth}`)
+      span.benchmark__value.benchmark__value--bad= badValue
+
+mixin project-cards(decorative)
+  +project-card('SWLS', 'https://github.com/SemanticWebLanguageServer/swls', 'SWLS — Semantic Web Language Server, on GitHub', 'images/swls-logo.png', 'Intellisense for Turtle & SPARQL, 5,000+ installs', decorative)
+  +project-card('RDF-Connect', 'https://github.com/rdf-connect/', 'RDF-Connect, on GitHub', 'images/rdf-connect-logo.png', 'Streaming RDF pipelines with built-in provenance', decorative)
+  +project-card('RDF-Lens', 'https://github.com/ajuvercr/rdf-lens', 'RDF-Lens, on GitHub', 'images/rdf-lens-logo.png', 'Composable, typed extraction from RDF graphs', decorative)
+  +project-card('LDES Client', 'https://github.com/rdf-connect/ldes-client/', 'LDES Client, on GitHub', 'images/ldes-logo.svg', 'Async client for Linked Data Event Streams', decorative)
+
+html(lang="en")
+  +head(title, description, og, stylesheets)
+
+  body.home
+    a.skip-link(href="#about") Skip to main content
+
+    header.hero
+      div.hero__terminal
+        p.hero__eyebrow
+          span.prompt $
+          |  whoami
+        h1.hero__name Arthur Vercruysse
+        p.hero__tagline
+          | Developer for semantic Web developers.
+          span.cursor(aria-hidden="true")
+
+      div.benchmark
+        p.benchmark__title $ arthur --benchmark --trust-me-bro --vs=some-random-dev
+        p.benchmark__legend
+          span.benchmark__legend-swatch.benchmark__legend-swatch--me
+          |  me
+          span.benchmark__legend-swatch.benchmark__legend-swatch--bad
+          |  some-random-dev
+        ul.benchmark__list
+          +bench-row('Semantic Web wizardry', '100%', '100%', '4%', '4%')
+          +bench-row('RDF triples per cup of coffee', '100%', '9000+', '2%', '0')
+          +bench-row('Bugs fixed via "turn it off and on again"', '12%', '12%', '97%', '97%')
+          +bench-row('Trust me bro accuracy', '100%', '100%', '5%', 'N/A')
+        p.benchmark__footnote // independently verified by nobody, n=1 (some-random-dev may or may not exist)
+
+      div.marquee(role="region" aria-label="Featured projects")
+        div.marquee__track
+          div.marquee__group
+            +project-cards()
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+          div.marquee__group.marquee__group--dup(aria-hidden="true")
+            +project-cards(true)
+
+    main
+      section#about.reveal(aria-labelledby="about-heading").container
+        h2#about-heading.section-heading ABOUT&nbsp;{
+        p.section-comment // whoami
+        .section-body
+          p.
+            PhD researcher in Computer Science Engineering at Ghent University, building
+            open-source developer tooling, streaming RDF pipelines, and Linked Data clients
+            for the FOSS Semantic Web community.
+          p.
+            My work centers on live, provenance-tracked knowledge graphs — which is what led
+            to building #[code RDF-Connect] and the #[code Semantic Web Language Server],
+            tools now used by other Semantic Web developers rather than just myself.
+          p.
+            Outside of work, I'm usually bouldering, chipping away at renovating my house,
+            or building small tools I didn't strictly need — see Projects below.
+        span.brace-close }
+
+      section#experience.reveal(aria-labelledby="experience-heading").container
+        h2#experience-heading.section-heading EXPERIENCE&nbsp;{
+        p.section-comment // git log --author=arthur
+        .section-body
+          ul.exp-list
+            li.exp-item
+              div.exp-item__head
+                span.exp-item__org Ghent University
+                span.exp-item__date February 2022 - present
+              div.exp-item__role Remote - PhD in Computer Science Engineering
+              p.exp-item__desc Researching live, provenance-tracked knowledge graphs — built #[code RDF-Connect] and the #[code Semantic Web Language Server] to support this work.
+            li.exp-item
+              div.exp-item__head
+                span.exp-item__org DPG Media IT
+                span.exp-item__date September 2021 - February 2022
+              div.exp-item__role Remote - Full Stack Developer
+              p.exp-item__desc Developed and maintained the #[code OIDC] login system spanning DPG Media's entire portfolio of products, including automatic SSO and multi-tenancy.
+            li.exp-item
+              div.exp-item__head
+                span.exp-item__org Redpencil.io
+                span.exp-item__date June 2021 - September 2021
+              div.exp-item__role Ghent - Backend Developer (Student Job)
+              p.exp-item__desc Improved code quality and performance across the microservice-based #[code mu-semtech] open linked data stack, and expanded its feature set.
+            li.exp-item
+              div.exp-item__head
+                span.exp-item__org Sigasi nv
+                span.exp-item__date July 2020 - September 2020
+              div.exp-item__role Ghent - Backend Developer (Internship)
+              p.exp-item__desc Assisted R&D with improving code quality and performance across #[code Sigasi Studio], an Eclipse-based editor.
+            li.exp-item
+              div.exp-item__head
+                span.exp-item__org Zeus WPI
+                span.exp-item__date July 2019 - June 2020
+              div.exp-item__role Ghent University - Vice President
+              p.exp-item__desc Co-organized events and led the student hacker space Zeus WPI.
+          p.section-cta
+            a(href="/cv/") View full CV →
+        span.brace-close }
+
+      section#publications.reveal(aria-labelledby="publications-heading").container
+        h2#publications-heading.section-heading PUBLICATIONS&nbsp;{
+        p.section-comment // citations != vibes
+        .section-body
+          ul.pub-list
+            li.pub-item
+              p.pub-item__title
+                strong RML Playground
+                | : Online Editing, Validation, and Execution for the RDF Mapping Language
+              p.pub-item__authors E. de Vleeschauwer, #[strong Vercruysse], B. De Meester, P. Colpaert — KGC workshop @ ESWC2026
+            li.pub-item
+              p.pub-item__title
+                strong Museum Monitoring
+                | : An Environmental Monitoring Dataspace Using The Things Network, Solid, and LDES
+              p.pub-item__authors #[strong Vercruysse], B. De Meester, J. Rojas Melendez, D. Suls — SemDH 2026
+            li.pub-item
+              p.pub-item__title
+                strong The Semantic Web Language Server
+                | : Enhancing the Developer Experience for Semantic Web Practitioners
+              p.pub-item__authors #[strong Vercruysse], J. Rojas Melendez, Pieter Colpaert — ESWC 2025
+            li.pub-item
+              p.pub-item__title
+                strong Bringing Modern IDE Features to Semantic Web Formats 
+                | with the Semantic Web Language Server
+              p.pub-item__authors #[strong Vercruysse], J. Rojas Melendez, Pieter Colpaert — ESWC2025
+            li.pub-item
+              p.pub-item__title
+                strong RDF-Connect
+                | : A Declarative Framework for Streaming and Cross-Environment Data Processing Pipelines
+              p.pub-item__authors #[strong Vercruysse], J. Pots, J. Rojas Melendez, Pieter Colpaert — SofLiM4KG'24 @ ISWC
+            li.pub-item
+              p.pub-item__title
+                strong Linking Application and Semantic Data 
+                | with RDF Lens
+              p.pub-item__authors #[strong Vercruysse], J.A. Rojas, P. Colpaert — SEMANTiCS 2024
+            li.pub-item
+              p.pub-item__title
+                strong Bringing IDE Support to JSON-LD 
+                | with the Language Server Protocol
+              p.pub-item__authors #[strong Vercruysse], J.A. Rojas, P. Colpaert — ISWC 2023 (Posters/Demos)
+            li.pub-item
+              p.pub-item__title
+                strong Describing a Network of Live Datasets 
+                | with the SDS Vocabulary
+              p.pub-item__authors #[strong Vercruysse], S. Min Oo, P. Colpaert — MEPDaW 2022
+        span.brace-close }
+
+      section#projects.reveal(aria-labelledby="projects-heading").container
+        h2#projects-heading.section-heading PROJECTS&nbsp;{
+        p.section-comment // side quests
+        .section-body
+          ul.project-grid
+            li.project-card
+              h3
+                a(href="https://github.com/ajuvercr/advent-of-code") Advent of Code
+              p Solutions to the yearly Advent of Code puzzles, mostly written as an excuse to try out a new language or squeeze out an unreasonable amount of performance.
+            li.project-card
+              h3
+                a(href="https://github.com/ajuvercr/beancount-importer") Beancount Importer
+              p A personal plain-text-accounting importer and visualizer for #[code Beancount], built to make sense of bank exports without handing my finances to a SaaS.
+            li.project-card
+              h3
+                a(href="https://github.com/ajuvercr/imager") Imager
+              p Displays ShaderToy shaders as a live desktop wallpaper, because a static background is a wasted GPU.
+        span.brace-close }
+
+    footer.site-footer.container
+      p Arthur Vercruysse
+      ul
+        li
+          a(href="mailto:arthur.vercruysse@outlook.com") arthur.vercruysse@outlook.com
+        li
+          a(href="https://scholar.google.com/citations?user=rSEb25sAAAAJ") Google Scholar
+        li
+          a(href="https://github.com/ajuvercr") github.com/ajuvercr
+        li
+          a(href="/cv/") CV
+
+    script(src="home.js" defer)

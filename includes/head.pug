@@ -1,0 +1,24 @@
+mixin head(title, description, og, stylesheets)
+  head
+    meta(charset="UTF-8")
+    title #{title}
+
+    // Metadata
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    // OpenGraph
+    meta(property="og:title", content=title)
+    if description
+      meta(property="og:description", content=description)
+    each value, prop in og
+      meta(property=`og:${prop}`, content=value)
+
+    // Stylesheets
+    link(rel="stylesheet", href="style.css")
+    each sheet in stylesheets
+      link(rel="stylesheet", href=sheet)
+
+    // Favicon (optional – remove if not needed)
+    link(rel="icon", type="image/png", sizes="32x32", href="favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="favicon-16x16.png")
+    meta(name="theme-color", content="#ffffff")

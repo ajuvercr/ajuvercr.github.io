@@ -1,0 +1,15 @@
+@mixin fira-mono($path) {
+  @font-face {
+    font-family: 'Fira Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$path}/FiraMono-Regular.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Fira Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('#{$path}/FiraMono-Bold.otf') format('opentype');
+  }
+}
