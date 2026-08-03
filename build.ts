@@ -22,6 +22,13 @@ async function main() {
     force: true,
   });
 
+  // Favicon (referenced with a relative href, so needs to sit next to each HTML file)
+  for (const size of ["16x16", "32x32"]) {
+    const favicon = `images/favicon-${size}.png`;
+    await fs.copyFile(favicon, `output/favicon-${size}.png`);
+    await fs.copyFile(favicon, `output/cv/favicon-${size}.png`);
+  }
+
   // 2. Compile SCSS → CSS
   const homeCss = sass.compile("./style/home.scss", { loadPaths: ["./style"] }).css;
   await fs.writeFile("output/style.css", homeCss);
